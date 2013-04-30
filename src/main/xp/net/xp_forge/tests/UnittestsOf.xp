@@ -1,0 +1,21 @@
+package net.xp_forge.tests;
+
+import text.doclet.*;
+import static util.cmd.Console.*;
+
+/**
+ * Lists unittests for a given class
+ */
+public class UnittestsOf extends Doclet {
+
+  /**
+   * Entry point
+   */
+  public void start(RootDoc $root) {
+    while ($this.classes.hasNext()) {
+      foreach ($tag in $this.classes.next().tags('test')) {
+        write($tag.class, ' ');
+      }
+    }
+  }
+}

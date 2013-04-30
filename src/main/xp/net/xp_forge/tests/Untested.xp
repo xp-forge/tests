@@ -1,0 +1,22 @@
+package net.xp_forge.tests;
+
+import text.doclet.*;
+import static util.cmd.Console.*;
+
+/**
+ * Lists all classes without tests
+ */
+public class Untested extends Doclet {
+
+  /**
+   * Entry point
+   */
+  public void start(RootDoc $root) {
+    while ($this.classes.hasNext()) {
+      $class= $this.classes.next();
+      if (!$class.tags('test')) {
+        writeLine($class);
+      }
+    }
+  }
+}
