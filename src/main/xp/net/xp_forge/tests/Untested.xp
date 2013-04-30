@@ -14,7 +14,7 @@ public class Untested extends Doclet {
   public void start(RootDoc $root) {
     while ($this.classes.hasNext()) {
       $class= $this.classes.next();
-      if (!$class.tags('test')) {
+      if (($class.isOrdinaryClass() || $class.isEnum()) && !$class.tags('test')) {
         writeLine($class);
       }
     }
